@@ -8,7 +8,7 @@ ADB is required for this project and will need to be installed first. These tool
 
 Then simply install the single dependency of discord.py using
 ```
-pip install -r requirements
+pip install -r requirements.txt
 ```
 using whatever your pip binary is called
 
